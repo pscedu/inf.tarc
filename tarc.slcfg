@@ -1,0 +1,41 @@
+# $Id$
+
+# See slcfg(5) for more information.
+
+# Archiver configuration
+set port=1304;
+set nets="tcp4 *.*.*.*";
+
+set pref_mds="tmds@192.168.0.12";
+set pref_ios="tios@192.168.0.14";
+set pref_client="tclient@192.168.0.13"; 
+set fsuuid="0xf20ba40896d9d2e1";
+
+site @CCL {
+	site_id			= 0x8;
+
+	resource tmds {
+		type		= mds;
+		id		= 9;
+		nids		= 192.168.0.12;
+		journal		= /dev/disk/by-id/virtio-b18ff388-5256-4775-8;
+		arc_max		= 4g;
+		#fidcachesz	= 128k;
+		zpool_name	= "tarc_s2md";
+		zpool_cache	= "/tarc_s2md.zcf";
+	}
+
+ 	resource tarcfs { 
+		 type = standalone_fs; 
+		 id = 0x1000; 
+		 nids = 192.168.0.12;
+		 self_test = "fshealthtest %r"; 
+		 fsroot = /tarc; 
+	}
+
+	resource tarc {
+		type	= cluster_noshare_lfs;
+		id	= 0x1fff;
+		ios	= tarcfs;
+	}
+}
