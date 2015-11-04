@@ -1,4 +1,3 @@
-
 ROOTDIR=../..
 include ${ROOTDIR}/Makefile.path
 

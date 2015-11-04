@@ -1,30 +1,14 @@
-# do not remove this variable; it is used by dsc
-
-tarc_clients=$(cat <<EOF
-    tclient%02d:1-2	   
-EOF
-)
-
-mail_from="@psc.edu"
-mail_to="dsimmel@psc.edu wozniak@psc.edu susan@psc.edu"
-: ${bounce_host:=pscuxa.psc.edu}
+mail_from="archproj@psc.edu"
+mail_to="archproj+mon@psc.edu"
+#: ${bounce_host:=chameleon.frontend.tacc.edu}
 
 # Newer libgcrypt has a bizarre multithreaded initialization procedure
 # which is broken with the way SLASH2 uses it.
 rm -f /etc/system-fips
 
-tarc_cli_opts="srcdir=/usr/local/src/p%CTL_SOCK_FILE=/var/run/\\x25n.$prof.\\x25h.sock%LNET_NETWORKS=sdp5(ib0)"
-
 set -- $(cat <<EOF
-#    firehose7.psc.edu%mount_slash%CTL_SOCK_FILE=/var/run/\\x25n.$prof.\\x25h.sock%share
-    $(mkclients $tarc_cli_opts $tarc_clients)
-    $(mkclients $tarc_cli_opts%mp=/tarc5%tag=5%narg=1%name=mount_slash5%PREF_IOS=sbb5@PSC%CTL_SOCK_FILE=/var/run/mount_slash5.tarc.\\x25h.sock%share $tarc_clients)
-
-    test3%slashd%bounce
-
-#    dxcadmin01%zfs-fuse%srcdir=/usr/local/src/p%share%bounce
-
-    $(mksliods dxcsbb05 8 'sdp5(bond0:%d)' /var/run/\\\\x25h-sliod%d.sock srcdir=/usr/local/src/p%bounce%share)
+    tclient%mount_slash%bounce
+    tmds%slashd%bounce
+    tios%sliod%bounce
 EOF
 )
-
