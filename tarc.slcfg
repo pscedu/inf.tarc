@@ -8,7 +8,8 @@ set nets="tcp8 *.*.*.*";
 
 set pref_mds="tmds@CCL";
 set pref_ios="io@CCL";
-set fsuuid="0xf20ba40896d9d2e1";
+set fsuuid="0xf4691dbcc92a53c"; 
+# old set fsuuid="0xf3599cfce648114d";  
 
 site @CCL {
 	site_id			= 0x8;
