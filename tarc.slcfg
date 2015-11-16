@@ -17,12 +17,12 @@ site @CCL {
 	resource tmds {
 		type		= mds;
 		id		= 0x1;
-		nids		= 192.168.0.12;
+		nids		= 192.168.0.16;
 		journal		= /dev/disk/by-id/virtio-b18ff388-5256-4775-8;
 #		arc_max		= 4g;
 #		fidcachesz	= 128k;
-		zpool_name	= "tarc_s2md";
-		zpool_cache	= "/tarc_s2md.zcf";
+		zpool_name	= "tarcmds_pool";
+		zpool_cache	= "/tarcmds_pool.zcf";
 	}
 
 	resource io {
