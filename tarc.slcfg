@@ -30,6 +30,6 @@ site @CCL {
 		 id		= 0x10;
 		 nids		= 192.168.0.14;
 		 self_test	= "fshealthtest %r";
-		 fsroot		= /tarc;
+		 fsroot		= /tarc_backend/slio;
 	}
 }
