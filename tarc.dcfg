@@ -8,6 +8,11 @@ rm -f /etc/system-fips
 
 set -- $(cat <<EOF
     tclient%mount_slash%bounce
+    tclient2%mount_slash%bounce
+    tclient3%mount_slash%bounce
+    tclient4%mount_slash%bounce
+    tclient5%mount_slash%bounce
+    tclient6%mount_slash%bounce
     tmds%slashd%bounce
     tios%sliod%bounce
 EOF
