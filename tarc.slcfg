@@ -17,7 +17,7 @@ site @CCL {
 	resource tmds {
 		type		= mds;
 		id		= 0x1;
-		nids		= 192.168.0.16;
+		nids		= 192.168.0.82;
 		journal		= /dev/disk/by-id/virtio-b18ff388-5256-4775-8;
 #		arc_max		= 4g;
 #		fidcachesz	= 128k;
@@ -28,7 +28,7 @@ site @CCL {
 	resource io {
 		 type		= standalone_fs;
 		 id		= 0x10;
-		 nids		= 192.168.0.14;
+		 nids		= 192.168.0.93;
 		 self_test	= "fshealthtest %r";
 		 fsroot		= /tarc_backend/slio;
 	}
