@@ -1,5 +1,7 @@
 tarc_clients="
-     tclientx%02d:1-91
+ tclient
+ tclient%d:2-6
+ tclientx-%d:1-91 
 "
 
 tarc_cli_opts="%mount_slash%bounce"
@@ -13,12 +15,6 @@ mail_to="archproj+mon@psc.edu"
 rm -f /etc/system-fips
 
 set -- $(cat <<EOF
-    tclient%mount_slash%bounce
-    tclient2%mount_slash%bounce
-    tclient3%mount_slash%bounce
-    tclient4%mount_slash%bounce
-    tclient5%mount_slash%bounce
-    tclient6%mount_slash%bounce
     $(mkclients $tarc_cli_opts $tarc_clients) 
     tmds%slashd%bounce
     tios%sliod%bounce
