@@ -9,7 +9,9 @@ set nets="tcp8 *.*.*.*";
 set pref_mds="tmds@CCL";
 set pref_ios="io@CCL";
 # set fsuuid="0xf4691dbcc92a53c"; 
-set fsuuid="0xf3599cfce648114d";  
+#set fsuuid="0xf3599cfce648114d";  
+set fsuuid="0x43a20e17defc1d01"; 
+
 
 site @CCL {
 	site_id			= 0x8;
@@ -22,7 +24,7 @@ site @CCL {
 #		arc_max		= 4g;
 #		fidcachesz	= 128k;
 		zpool_name	= "tarcmds_pool";
-		zpool_cache	= "/tarcmds_pool.zcf";
+#		zpool_cache	= "/tarcmds_pool.zcf";
 	}
 
 	resource io {
